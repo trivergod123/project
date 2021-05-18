@@ -1,3 +1,6 @@
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    otherSprite.destroy()
+})
 tiles.setTilemap(tilemap`level1`)
 let Not_Mario = sprites.create(img`
     . . . . . . . . . . . . . 
@@ -17,7 +20,7 @@ let Not_Mario = sprites.create(img`
     . f f f f f f f f f f . . 
     . . f f . . . f f f . . . 
     `, SpriteKind.Player)
-tiles.placeOnTile(Not_Mario, tiles.getTileLocation(0, 4))
+tiles.placeOnTile(Not_Mario, tiles.getTileLocation(0, 3))
 scene.cameraFollowSprite(Not_Mario)
 Not_Mario.say("We need to save the princess come on!!!")
 let not_goomba = sprites.create(img`
@@ -45,7 +48,8 @@ let not_goomba = sprites.create(img`
     ........................
     ........................
     ........................
-    `, SpriteKind.Player)
+    `, SpriteKind.Enemy)
+not_goomba.setPosition(randint(10, 30), randint(10, 50))
 let not_enemy = sprites.create(img`
     . . f f f . . . . . . . . . . . 
     f f f c c . . . . . . . . f f f 
@@ -63,7 +67,8 @@ let not_enemy = sprites.create(img`
     . . f 2 2 2 b b b c f . . . . . 
     . . . f f f f f f f . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
+    `, SpriteKind.Enemy)
+not_enemy.setPosition(randint(0, 10), randint(0, 10))
 let goomba = sprites.create(img`
     . . . . . . c c c c c c c . . . 
     . . . . . c f f 6 6 f f 7 c . . 
@@ -81,4 +86,10 @@ let goomba = sprites.create(img`
     f 6 1 1 1 1 1 6 6 6 6 6 6 c . . 
     . f 6 1 1 1 1 6 6 6 6 6 c . . . 
     . . f f c c c c c c c c . . . . 
-    `, SpriteKind.Player)
+    `, SpriteKind.Enemy)
+goomba.setPosition(randint(0, 10), randint(0, 10))
+not_goomba.setStayInScreen(true)
+goomba.setStayInScreen(true)
+not_enemy.setStayInScreen(true)
+Not_Mario.setStayInScreen(true)
+controller.moveSprite(Not_Mario, 50, 50)
