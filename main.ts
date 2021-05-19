@@ -49,7 +49,7 @@ let not_goomba = sprites.create(img`
     ........................
     ........................
     `, SpriteKind.Enemy)
-not_goomba.setPosition(randint(10, 30), randint(10, 50))
+not_goomba.setPosition(randint(30, 70), randint(20, 80))
 let not_enemy = sprites.create(img`
     . . f f f . . . . . . . . . . . 
     f f f c c . . . . . . . . f f f 
@@ -68,7 +68,7 @@ let not_enemy = sprites.create(img`
     . . . f f f f f f f . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
-not_enemy.setPosition(randint(0, 10), randint(0, 10))
+not_enemy.setPosition(randint(10, 40), randint(20, 50))
 let goomba = sprites.create(img`
     . . . . . . c c c c c c c . . . 
     . . . . . c f f 6 6 f f 7 c . . 
@@ -87,7 +87,77 @@ let goomba = sprites.create(img`
     . f 6 1 1 1 1 6 6 6 6 6 c . . . 
     . . f f c c c c c c c c . . . . 
     `, SpriteKind.Enemy)
-goomba.setPosition(randint(0, 10), randint(0, 10))
+let enemy2 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . 4 4 4 . . . . 4 4 4 . . . . 
+    . 4 5 5 5 e . . e 5 5 5 4 . . . 
+    4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
+    4 5 5 4 4 5 5 5 5 4 4 5 5 4 . . 
+    e 5 4 4 5 5 5 5 5 5 4 4 5 e . . 
+    . e e 5 5 5 5 5 5 5 5 e e . . . 
+    . . e 5 f 5 5 5 5 f 5 e . . . . 
+    . . f 5 5 5 4 4 5 5 5 f . f f . 
+    . . . 4 5 5 f f 5 5 6 f f 5 f . 
+    . . . f 6 6 6 6 6 6 4 f 5 5 f . 
+    . . . f 5 5 5 5 5 5 5 4 5 f . . 
+    . . . . f 5 4 5 f 5 f f f . . . 
+    . . . . . f f f f f f f . . . . 
+    `, SpriteKind.Player)
+let mySprite = sprites.create(img`
+    . . . . f f f f f . . . . . . . 
+    . . . f e e e e e f . . . . . . 
+    . . f d d d d e e e f . . . . . 
+    . c d f d d f d e e f . . . . . 
+    . c d f d d f d e e f f . . . . 
+    c d e e d d d d e e d d f . . . 
+    c d d d d c d d e e b d c . . . 
+    c c c c c d d e e e b d c . f f 
+    . f d d d d e e e f f c . f e f 
+    . f f f f f f e e e e f . f e f 
+    . f f f f e e e e e e e f f e f 
+    f d d f d d f e f e e e e f f . 
+    f d b f d b f e f e e e e f . . 
+    f f f f f f f f f f f f e f . . 
+    . . . . . . . . . f c d d f . . 
+    . . . . . . . . . . f f f f . . 
+    `, SpriteKind.Player)
+let mySprite2 = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . c c . . . 
+    . . . . . . . c c c c 6 3 c . . 
+    . . . . . . c 6 3 3 3 3 6 c . . 
+    . . c c . c 6 c c 3 3 3 3 3 c . 
+    . c 5 5 c 6 c 5 5 c 3 3 3 3 3 c 
+    . f f 5 c 6 c 5 f f 6 3 3 3 c c 
+    . f f 5 3 c 3 5 f f 6 6 6 6 c c 
+    . . b 5 5 3 5 5 c 3 3 3 3 3 3 c 
+    . c c 5 5 5 5 5 b c c 3 3 3 3 c 
+    c 5 5 4 5 5 5 4 b 5 5 c 3 3 c . 
+    b 5 4 b 4 4 4 4 b b 5 c b b . . 
+    c 5 5 5 c 4 c 5 5 5 c 4 c 5 c . 
+    c 5 5 5 5 c 5 5 5 5 c 4 c 5 c . 
+    . c c c c c c c c c . . c c c . 
+    `, SpriteKind.Player)
+let mySprite3 = sprites.create(img`
+    ..............cfff..............
+    ............ccddbf..............
+    ...........cbddbff.........ccc..
+    ..........fccbbcf.........cbbc..
+    ...fffffffccccccff.......cdbc...
+    .ffcbbbbbbbbbbbbbcfff....cdbf...
+    fcbbbbbbbbbcbbbbbbcccff.cdbf....
+    fbcbbbbffbbbcbcbbbcccccffdcf....
+    fbb1111ffbbbcbcbbbccccccbbcf....
+    .fb11111111bbcbbbccccccccbbcf...
+    ..fccc33cb11bbbbcccccccfffbbf...
+    ...fc131c111bbbcccccbdbc..fbbf..
+    ....f33c111cbbccdddddbc....fff..
+    .....ff1111fdbbccddbcc..........
+    .......cccccfdbbbfcc............
+    .............fffff..............
+    `, SpriteKind.Player)
+goomba.setPosition(randint(30, 100), randint(20, 70))
 not_goomba.setStayInScreen(true)
 goomba.setStayInScreen(true)
 not_enemy.setStayInScreen(true)
